@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BiteByte Technologies | Smarter Kitchens. Zero Waste.</title>
+    <style>
+        :root {
+            --primary: #2e7d32;
+            --primary-dark: #1b5e20;
+            --accent: #81c784;
+            --light-bg: #f4f6f4;
+            --text-dark: #2c3e50;
+            --text-light: #555555;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        /* Navigation */
+        nav {
+            background-color: var(--white);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .logo span {
+            color: var(--text-dark);
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            padding: 4rem 1.5rem;
+            text-align: center;
+            border-radius: 12px;
+            margin-top: 1rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto 1.5rem auto;
+            color: var(--text-light);
+        }
+
+        .mission-box {
+            background: var(--white);
+            padding: 1.5rem;
+            border-left: 5px solid var(--primary);
+            border-radius: 4px;
+            max-width: 800px;
+            margin: 2rem auto 0 auto;
+            text-align: left;
+        }
+
+        /* Quick Stats */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .stat-card {
+            background-color: var(--light-bg);
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-card .number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        /* Headings */
+        h2 {
+            font-size: 2rem;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        section {
+            margin-bottom: 4rem;
+        }
+
+        /* Product Section */
+        .product-intro {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .product-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--white);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .product-table th, .product-table td {
+            padding: 1.2rem;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .product-table th {
+            background-color: var(--primary);
+            color: var(--white);
+            font-size: 1.1rem;
+        }
+
+        .product-table tr:hover {
+            background-color: #f9f9f9;
+        }
+
+        .product-table td strong {
+            color: var(--primary-dark);
+        }
+
+        .product-table ul {
+            list-style-type: none;
+        }
+
+        .product-table li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Sponsors */
+        .sponsors-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .sponsors-list li {
+            background-color: var(--light-bg);
+            padding: 1rem 1.5rem;
+            border-radius: 6px;
+            border-left: 4px solid var(--accent);
+        }
+
+        /* About Section */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .team-card {
+            background: var(--light-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+
+        .values-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .values-list li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .values-list li::before {
+            content: "✓";
+            color: var(--primary);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-dark);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">BiteByte <span>Technologies</span></div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#product">Product</a></li>
+            <li><a href="#sponsors">Sponsors</a></li>
+            <li><a href="#about">About</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <!-- Homepage / Hero -->
+        <section id="home">
+            <div class="hero">
+                <h1>Transform Your Kitchen with AI-Powered Food Management</h1>
+                <p>BiteByte bridges the gap between smart home automation and sustainable living. Our platform tracks your pantry in real-time, automates meal planning based on expiring ingredients, and connects you directly to local surplus food networks.</p>
+                <div class="mission-box">
+                    <strong>Core Mission:</strong> To eliminate household food waste, save consumers money, and revolutionize how families track, prepare, and share food.
+                </div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="number">30%</div>
+                    <p>Average reduction in household food waste</p>
+                </div>
+                <div class="stat-card">
+                    <div class="number">₱1,200</div>
+                    <p>Saved per family annually</p>
+                </div>
+                <div class="stat-card">
+                    <div class="number">100k+</div>
+                    <p>Meals rescued from landfills through local network sharing</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Information -->
+        <section id="product">
+            <h2>Product Information</h2>
+            <p class="product-intro"><strong>BiteByte Smart Hub & App</strong> combines a compact hardware sensor unit for your fridge and pantry with an intuitive mobile platform.</p>
+
+            <table class="product-table">
+                <thead>
+                    <tr>
+                        <th style="width: 25%;">Dimension</th>
+                        <th>Details & Features</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Functionality</strong></td>
+                        <td>
+                            <ul>
+                                  <li>• <strong>Computer Vision Scanning:</strong> Camera modules automatically log groceries as they enter the fridge.</li>
+                                  <li>• <strong>Smart Inventory Tracking:</strong> Real-time expiration alerts pushed directly to your phone.</li>
+                                  <li>• <strong>Dynamic Recipe Generation:</strong> AI suggests recipes using ingredients closest to expiring.</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Benefits</strong></td>
+                        <td>
+                            <ul>
+                                <li>• <strong>Cost Savings:</strong> Stop throwing away forgotten, spoiled groceries.</li>
+                                <li>• <strong>Time Efficiency:</strong> Automated grocery list generation based on actual consumption patterns.</li>
+                                <li>• <strong>Sustainability:</strong> Dramatically lowers your personal carbon footprint.</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Usability</strong></td>
+                        <td>
+                            <ul>
+                                <li>• <strong>Plug-and-Play Setup:</strong> Magnetic sensors adhere to any standard refrigerator interior.</li>
+                                <li>• <strong>Seamless App Interface:</strong> Simple visual dashboard categorized by produce, dairy, proteins, and pantry goods.</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Operability</strong></td>
+                        <td>
+                            <ul>
+                                <li>• <strong>Battery Life:</strong> Rechargeable lithium-ion battery lasting 6 months per charge.</li>
+                                <li>• <strong>Connectivity:</strong> Low-energy Wi-Fi and Bluetooth 5.2 sync.</li>
+                                <li>• <strong>Ecosystem Integration:</strong> Works with iOS, Android, Alexa, and Google Assistant.</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Funding Sponsors & Partners -->
+        <section id="sponsors">
+            <h2>Funding Sponsors & Partners</h2>
+            <p>We are proudly backed by leading venture funds and sustainability accelerators:</p>
+            <ul class="sponsors-list">
+                <li><strong>GreenTech Ventures</strong><br>Seed Round Lead Investor (₱2.5M)</li>
+                <li><strong>AgriFood Future Fund</strong><br>Early-Stage Innovation Grant</li>
+                <li><strong>EcoInnovate Accelerator</strong><br>Mentorship & Infrastructure Partner</li>
+                <li><strong>Global Food Waste Coalition</strong><br>Non-profit Strategic Sponsor</li>
+            </ul>
+        </section>
+
+        <!-- About the Company -->
+        <section id="about">
+            <h2>About the Company</h2>
+            
+            <h3 style="margin-top: 1rem;">Our Story</h3>
+            <p style="margin-bottom: 1.5rem;">Founded in 2025, BiteByte began in a university apartment where three engineers realized half of their weekly groceries were ending up in the trash. Recognizing that food waste is both an economic burden on families and a major driver of global greenhouse gas emissions, we built a solution that makes sustainable food management effortless.</p>
+
+            <h3>Leadership Team</h3>
+            <div class="team-grid">
+                <div class="team-card">
+                    <h4>Francis Jhon Areglo</h4>
+                    <p style="color: var(--primary); font-weight: 500;">Chief Executive Officer</p>
+                    <p><small>Ex-IoT Product Lead</small></p>
+                </div>
+                <div class="team-card">
+                    <h4>Francis Jhon Areglo</h4>
+                    <p style="color: var(--primary); font-weight: 500;">Head of Sustainability & Operations</p>
+                    <p><small>Former Food Supply Chain Analyst</small></p>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 2rem;">Company Values</h3>
+            <ul class="values-list">
+                <li><strong>Sustainability First:</strong> Every feature we build must reduce waste.</li>
+                <li><strong>Frictionless Tech:</strong> Technology should fit into your daily routine, not complicate it.</li>
+                <li><strong>Community Impact:</strong> Excess food belongs on tables, not in landfills.</li>
+            </ul>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 BiteByte Technologies. Smarter Kitchens. Zero Waste.</p>
+    </footer>
+
+</body>
+</html>
